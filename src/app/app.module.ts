@@ -11,6 +11,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { DataService } from './services/data.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,7 +26,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()
