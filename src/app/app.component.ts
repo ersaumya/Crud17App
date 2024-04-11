@@ -74,7 +74,14 @@ export class AppComponent implements OnInit {
     });
   }
 
-  deleteProduct(id: number) {}
+  deleteProduct(id: number) {
+    if (confirm('Confirm delete?')) {
+      this.service.deleteProduct(id).subscribe((data) => {
+        this.loadProduct();
+        alert('product deleted successfully.');
+      });
+    }
+  }
 
   showAddProductForm() {
     this.productForm.reset();
